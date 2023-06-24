@@ -37,12 +37,12 @@ resource "aws_apigatewayv2_deployment" "gateway_deploy" {
   api_id      = aws_apigatewayv2_api.gateway.id
   description = "${var.environment}-sdp-federated-id-key-gateway"
 
-  triggers = {
-    redeployment = sha1(join(",", tolist(
-      jsonencode(aws_apigatewayv2_integration.api_integration),
-      jsonencode(aws_apigatewayv2_route.gateway_route),
-    )))
-  }
+  # triggers = {
+  #   redeployment = sha1(join(",", tolist(
+  #     jsonencode(aws_apigatewayv2_integration.api_integration),
+  #     jsonencode(aws_apigatewayv2_route.gateway_route),
+  #   )))
+  # }
 
   lifecycle {
     create_before_destroy = true
