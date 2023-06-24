@@ -17,12 +17,12 @@ resource "aws_apigatewayv2_integration" "api_integration" {
 resource "aws_apigatewayv2_authorizer" "gateway_authorizer" {
   depends_on                        = [aws_apigatewayv2_api.gateway, aws_iam_role.snowflake_iam_role]
   api_id                            = aws_apigatewayv2_api.gateway.id
-  authorizer_type                   = "REQUEST"
+  authorizer_type                   = "AWS_IAM"
   authorizer_uri                    = aws_lambda_function.lambda.invoke_arn
   authorizer_credentials_arn        = aws_iam_role.snowflake_iam_role.arn
   authorizer_result_ttl_in_seconds  = "0"
   identity_sources                  = ["$request.header.Authorization"]
-  name                              = "${var.environment}-sdp-federated-id-key-gateway-authorizer"
+  name                              = "${var.environment}-sdp-federated-id-key-gateway-iamauth"
   authorizer_payload_format_version = "2.0"
 }
 
