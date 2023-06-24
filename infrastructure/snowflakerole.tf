@@ -17,9 +17,9 @@ resource "aws_iam_role" "snowflake_iam_role" {
 })
 }
 
-resource "aws_iam_policy" "snowflake_iam_policy" {
-  name        = "${var.environment}-sdp-federated-id-key-gateway-snowflake-role"
-  description = "Snowflake policy permission"
+# resource "aws_iam_policy" "snowflake_iam_policy" {
+#   name        = "${var.environment}-sdp-federated-id-key-gateway-snowflake-role"
+#   description = "Snowflake policy permission"
 #   policy = jsonencode({
 # 	"Version": "2012-10-17",
 # 	"Statement": [
@@ -34,10 +34,10 @@ resource "aws_iam_policy" "snowflake_iam_policy" {
 # 		}
 # 	]
 # })
-}
+# }
 
-resource "aws_iam_policy_attachment" "snowflake_role_policy_attachment" {
-  name       = "Policy Attachement"
-  policy_arn = aws_iam_policy.snowflake_iam_policy.arn
-  roles      = [aws_iam_role.snowflake_iam_role.name]
-}
+# resource "aws_iam_policy_attachment" "snowflake_role_policy_attachment" {
+#   name       = "Policy Attachement"
+#   policy_arn = aws_iam_policy.snowflake_iam_policy.arn
+#   roles      = [aws_iam_role.snowflake_iam_role.name]
+# }
