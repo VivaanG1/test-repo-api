@@ -25,3 +25,26 @@ resource "aws_apigatewayv2_authorizer" "gateway_authorizer" {
   name                              = "${var.environment}-sdp-federated-id-key-gateway-authorizer"
   authorizer_payload_format_version = "2.0"
 }
+
+resource "aws_apigatewayv2_route" "gateway_route" {
+  api_id        = aws_apigatewayv2_api.gateway.id
+  route_key     = "$default"
+  authorizer_id = aws_apigatewayv2_authorizer.gateway_authorizer.id
+
+}
+
+resource "aws_apigatewayv2_deployment" "gateway_deploy" {
+  api_id      = aws_apigatewayv2_api.gateway.id
+  description = "${var.environment}-sdp-federated-id-key-gateway"
+
+  # triggers = {
+  #   redeployment = sha1(join(",", tolist(
+  #     jsonencode(aws_apigatewayv2_integration.api_integration),
+  #     jsonencode(aws_apigatewayv2_route.gateway_route),
+  #   )))
+  # }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
