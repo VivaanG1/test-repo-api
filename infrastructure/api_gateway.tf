@@ -27,11 +27,12 @@ resource "aws_apigatewayv2_authorizer" "gateway_authorizer" {
 }
 
 resource "aws_apigatewayv2_route" "gateway_route" {
-  api_id         = aws_apigatewayv2_api.gateway.id
-  route_key      = "$default"
-  operation_name = "${var.environment}-sdp-federated-id-key-gateway-operation"
-  target         = "integrations/${aws_apigatewayv2_integration.api_integration.id}"
-  authorizer_id  = aws_apigatewayv2_authorizer.gateway_authorizer.id
+  api_id             = aws_apigatewayv2_api.gateway.id
+  route_key          = "$default"
+  operation_name     = "${var.environment}-sdp-federated-id-key-gateway-operation"
+  target             = "integrations/${aws_apigatewayv2_integration.api_integration.id}"
+  authorization_type = "AWS_IAM"
+  authorizer_id      = aws_apigatewayv2_authorizer.gateway_authorizer.id
 }
 
 resource "aws_apigatewayv2_deployment" "gateway_deploy" {
