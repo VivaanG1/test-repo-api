@@ -32,6 +32,7 @@ resource "aws_apigatewayv2_route" "gateway_route" {
   operation_name     = "${var.environment}-sdp-federated-id-key-gateway-operation"
   target             = "integrations/${aws_apigatewayv2_integration.api_integration.id}"
   authorization_type = "CUSTOM"
+
   authorizer_id      = aws_apigatewayv2_authorizer.gateway_authorizer.id
 }
 
