@@ -24,7 +24,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: "arn:aws:iam::256073515130:role/S3accessfotiodc"
+          role-to-assume: "arn:aws:iam::856970428305:role/iamrolegithub"
           role-session-name: terraform-state-session
           aws-region: "eu-west-1"         
       
