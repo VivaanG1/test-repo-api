@@ -38,7 +38,7 @@ resource "aws_apigatewayv2_deployment" "gateway_deploy" {
   description = "${var.environment}-sdp-federated-id-key-gateway"
 
   triggers = {
-    redeployment = sha1(join(",", list(
+    redeployment = sha1(join(",", tolist(
       jsonencode(aws_apigatewayv2_integration.api_integration),
       jsonencode(aws_apigatewayv2_route.gateway_route),
     )))
