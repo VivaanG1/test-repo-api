@@ -9,7 +9,7 @@ resource "aws_apigatewayv2_integration" "api_integration" {
   integration_type = "AWS_PROXY"
 
   connection_type    = "INTERNET"
-  integration_method = "ANY"
+  integration_method = "POST"
   integration_uri    = aws_lambda_function.lambda.invoke_arn
 }
 
