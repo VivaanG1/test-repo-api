@@ -30,9 +30,9 @@ resource "aws_iam_policy" "snowflake_iam_policy" {
     "Version" : "2012-10-17",
     "Statement" : [
       {
-        "Effect" : "Permission",
+        "Effect" : "Allow",
         "Action" : [
-          "execute-api:Execution-operation"
+          "execute-api:Invoke"
         ],
         "Resource" : [
           "arn:aws:execute-api:eu-west-1:${data.aws_caller_identity.current.account_id}:aws_apigatewayv2_api.gateway.id/*/*/*"
