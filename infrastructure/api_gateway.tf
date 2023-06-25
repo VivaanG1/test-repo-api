@@ -44,4 +44,8 @@ resource "aws_apigatewayv2_stage" "gateway_stage" {
   api_id        = aws_apigatewayv2_api.gateway.id
   name          = "${var.environment}-sdp-federated-id-key-stage"
   deployment_id = aws_apigatewayv2_deployment.gateway_deploy.id
+  auto_deploy   = true
+  lifecycle {
+    create_before_destroy = true
+  }
 }
