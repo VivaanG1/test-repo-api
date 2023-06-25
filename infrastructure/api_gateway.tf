@@ -14,6 +14,7 @@ resource "aws_apigatewayv2_integration" "api_integration" {
   passthrough_behavior = "WHEN_NO_MATCH"
 }
 
+
 # resource "aws_apigatewayv2_authorizer" "gateway_authorizer" {
 #   depends_on                        = [aws_apigatewayv2_api.gateway, aws_iam_role.snowflake_iam_role]
 #   api_id                            = aws_apigatewayv2_api.gateway.id
