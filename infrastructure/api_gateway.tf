@@ -22,7 +22,7 @@ resource "aws_apigatewayv2_authorizer" "gateway_authorizer" {
   authorizer_credentials_arn        = aws_iam_role.snowflake_iam_role.arn
   authorizer_result_ttl_in_seconds  = "0"
   identity_sources                  = ["$request.header.Authorization"]
-  name                              = "${var.environment}-sdp-federated-id-key-gateway-authorizer"
+  name                              = "${var.environment}-sdp-federated-id-key-gateway--authorizer"
   authorizer_payload_format_version = "2.0"
 }
 
@@ -31,7 +31,7 @@ resource "aws_apigatewayv2_route" "gateway_route" {
   route_key          = "$default"
   operation_name     = "${var.environment}-sdp-federated-id-key-gateway-operation"
   target             = "integrations/${aws_apigatewayv2_integration.api_integration.id}"
-  authorization_type = "AWS_IAM"
+  authorization_type = "CUSTOM"
   authorizer_id      = aws_apigatewayv2_authorizer.gateway_authorizer.id
 }
 
@@ -45,4 +45,8 @@ resource "aws_apigatewayv2_stage" "gateway_stage" {
   api_id        = aws_apigatewayv2_api.gateway.id
   name          = "${var.environment}-sdp-federated-id-key-stage"
   deployment_id = aws_apigatewayv2_deployment.gateway_deploy.id
+  auto_deploy   = true
+  lifecycle {
+    create_before_destroy = true
+  }
 }
