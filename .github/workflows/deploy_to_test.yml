@@ -64,7 +64,3 @@ jobs:
       - name: Terraform Execute
         working-directory: infrastructure
         run: terraform apply -auto-approve
-
-      - name: Terraform Destroy
-        working-directory: infrastructure
-        run: terraform destroy -auto-approve
