@@ -1,7 +1,7 @@
 variable "environment" {
   description = "Environment for Lambda function and API Gateway"
   type        = string
-  default     = "one-love"
+  default     = "hanuman"
 }
 variable "federated_id_env" {
   description = "Environment variable for FedID environment"
