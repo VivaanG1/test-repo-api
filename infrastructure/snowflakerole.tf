@@ -15,7 +15,7 @@ resource "aws_iam_role" "snowflake_iam_role" {
         "Effect" : "Allow",
         "Action" : "sts:AssumeRole",
         "Principal" : {
-          "AWS" : "856970428305"
+          "AWS" : "${data.aws_caller_identity.current.account_id}"
         },
         "Condition" : {}
       }
