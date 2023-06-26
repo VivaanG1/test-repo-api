@@ -13,7 +13,6 @@ resource "aws_apigatewayv2_integration" "gateway_integration" {
   payload_format_version = "2.0"
 }
 
-
 resource "aws_apigatewayv2_route" "gateway_route" {
   api_id         = aws_apigatewayv2_api.gateway.id
   route_key      = "ANY"
