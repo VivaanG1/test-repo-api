@@ -45,8 +45,7 @@ jobs:
 #       - name: Build
 #         run: npm run build
       - name: zip
-        working-directory: build
-        run: zip index.js.zip index.js
+        run: zip -r build.zip build
 
       - name: Terraform Init
         working-directory: infrastructure
