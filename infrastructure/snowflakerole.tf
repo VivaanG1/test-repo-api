@@ -35,7 +35,7 @@ resource "aws_iam_policy" "snowflake_iam_policy" {
           "execute-api:Invoke"
         ],
         "Resource" : [
-          "arn:aws:execute-api:eu-west-1:${data.aws_caller_identity.current.account_id}:${aws_apigatewayv2_api.gateway.id}/${aws_apigatewayv2_stage.gateway_stage.name}/ANY/*"
+          "${aws_apigatewayv2_stage.gateway_stage.execution_arn}/*"
         ]
       }
     ]
