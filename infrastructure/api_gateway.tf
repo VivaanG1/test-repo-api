@@ -15,7 +15,7 @@ resource "aws_apigatewayv2_integration" "gateway_integration" {
 
 resource "aws_apigatewayv2_route" "gateway_route" {
   api_id         = aws_apigatewayv2_api.gateway.id
-  route_key      = "ANY"
+  route_key      = "ANY /{proxy+}"
   operation_name = "${var.environment}-sdp-federated-id-key-gateway-operation"
   target         = "integrations/${aws_apigatewayv2_integration.gateway_integration.id}"
 }
