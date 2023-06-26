@@ -1,7 +1,7 @@
 variable "environment" {
   description = "Environment for Lambda function and API Gateway"
   type        = string
-  default     = "subodhkgname-test"
+  default     = "subodhkg-test-000"
 }
 variable "federated_id_env" {
   description = "Environment variable for FedID environment"
