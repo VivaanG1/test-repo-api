@@ -42,8 +42,7 @@ jobs:
       #   run: npm run lint     
 
       - name: zip
-        working-directory: build
-        run: zip index.js.zip index.js
+        run: zip -r build.zip build
 
       - name: Terraform Init
         working-directory: infrastructure
