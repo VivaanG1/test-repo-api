@@ -9,18 +9,18 @@ resource "aws_iam_role" "snowflake_iam_role" {
   description = "IAM role for snowflake"
 
   assume_role_policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Effect" : "Allow",
-        "Action" : "sts:AssumeRole",
-        "Principal" : {
-          "AWS" : "${data.aws_caller_identity.current.account_id}"
-        },
-        "Condition" : {}
-      }
-    ]
-  })
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::1234567898012:user/development/development_user"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {"StringEquals": { "sts:ExternalId": "EXTERNAL_FUNCTIONS_SFCRole=3_8Hcmbi9halFOkt+MdilPi7rdgOv=" }}
+    }
+  ]
+})
 }
 
 resource "aws_iam_policy" "snowflake_iam_policy" {
