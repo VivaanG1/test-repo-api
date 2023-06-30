@@ -13,11 +13,11 @@ resource "aws_iam_role" "snowflake_iam_role" {
     "Statement" : [
       {
         "Effect" : "Allow",
-        "Action" : "sts:AssumeRole",
         "Principal" : {
-          "AWS" : "${data.aws_caller_identity.current.account_id}"
+          "AWS" : "arn:aws:iam::1234567898012:user/development/development_user"
         },
-        "Condition" : {}
+        "Action" : "sts:AssumeRole",
+        "Condition" : { "StringEquals" : { "sts:ExternalId" : "EXTERNAL_FUNCTIONS_SFCRole=3_8Hcmbi9halFOkt+MdilPi7rdgOv=" } }
       }
     ]
   })
