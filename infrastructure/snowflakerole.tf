@@ -10,10 +10,10 @@ resource "aws_iam_role" "snowflake_iam_role" {
       {
         "Effect" : "Allow",
         "Principal" : {
-          "AWS" : "arn:aws:iam::856970428305:root"
+          "AWS" : "arn:aws:iam::672123456321:user/sil70000-s"
         },
         "Action" : "sts:AssumeRole",
-        "Condition" : {}
+        "Condition" : { "StringEquals" : { "sts:ExternalId" : "Booster_SFCRole=12_RMYM4mN+ds2PFHGJ3+NlEX5x4K0=" } }
       }
     ]
   })
