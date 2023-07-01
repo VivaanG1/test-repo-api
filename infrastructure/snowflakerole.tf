@@ -6,21 +6,21 @@ resource "aws_iam_role" "snowflake_iam_role" {
 
   assume_role_policy = <<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::672123456321:user/sil70000-s"
-      },
-      "Action": "sts:AssumeRole",
-      "Condition": {
-        "StringEquals": {
-          "sts:ExternalId": "Booster_SFCRole=12_RMYM4mN+ds2PFHGJ3+NlEX5x4K0="
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::672255977428:user/sil70000-s"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "sts:ExternalId": "BBCSTUDIOS_SFCRole=12_RMYM4mN+ds2PFHGJ3+NlEX5x4K0="
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }
 EOF
 }
