@@ -3,6 +3,7 @@ variable "environment" {
   type        = string
   default     = "jaishriram"
 }
+
 variable "federated_id_env" {
   description = "Environment variable for FedID environment"
   type        = string
