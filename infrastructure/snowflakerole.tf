@@ -1,7 +1,3 @@
-data "aws_partition" "current" {}
-
-data "aws_region" "current" {}
-
 data "aws_caller_identity" "current" {}
 
 resource "aws_iam_role" "snowflake_iam_role" {
