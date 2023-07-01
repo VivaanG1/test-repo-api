@@ -10,7 +10,7 @@ resource "aws_iam_role" "snowflake_iam_role" {
       {
         "Effect" : "Allow",
         "Principal" : {
-          "AWS" : "arn:aws:iam::672255977428:user/sil70000-s"
+          "AWS" : "arn:aws:iam::672255977428:user/sil71111-s"
         },
         "Action" : "sts:AssumeRole",
         "Condition" : {
@@ -22,6 +22,7 @@ resource "aws_iam_role" "snowflake_iam_role" {
     ]
   })
 }
+
 
 resource "aws_iam_policy" "snowflake_iam_policy" {
   name        = "${var.environment}-sdp-federated-id-key-gateway-snowflake-role"
