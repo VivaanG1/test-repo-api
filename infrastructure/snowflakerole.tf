@@ -23,6 +23,7 @@ resource "aws_iam_role" "snowflake_iam_role" {
   })
 }
 
+
 resource "aws_iam_policy" "snowflake_iam_policy" {
   name        = "${var.environment}-sdp-federated-id-key-gateway-snowflake-role"
   description = "Snowflake policy permission"
