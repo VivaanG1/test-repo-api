@@ -16,7 +16,7 @@ resource "aws_iam_role" "snowflake_iam_role" {
         "Condition" : {}
       }
     ]
-  })
+})
 }
 
 
