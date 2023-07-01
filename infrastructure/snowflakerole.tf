@@ -5,18 +5,18 @@ resource "aws_iam_role" "snowflake_iam_role" {
   description = "IAM role for snowflake"
 
   assume_role_policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::856970428305:root"
-            },
-            "Action": "sts:AssumeRole",
-            "Condition": {}
-        }
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Principal" : {
+          "AWS" : "arn:aws:iam::856970428305:root"
+        },
+        "Action" : "sts:AssumeRole",
+        "Condition" : {}
+      }
     ]
-})
+  })
 }
 
 
