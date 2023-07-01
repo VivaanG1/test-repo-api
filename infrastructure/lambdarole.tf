@@ -31,7 +31,7 @@ resource "aws_iam_role_policy" "lambda_iam_policy" {
     "Statement": {
         "Effect": "Allow",
         "Action": "sts:AssumeRole",
-        "Resource": "arn:aws:iam::123456789098:role/int-iyutruyrttrtrryyruruyruyrfgxfgxgr"
+        "Resource": "arn:aws:iam::977678965431:role/int-federated-id-secrets-LocalFederatedIdSecretsM-P9DKD89JWQNT"
     }
 }
   EOF

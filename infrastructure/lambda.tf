@@ -15,5 +15,4 @@ resource "aws_lambda_function" "lambda" {
       SECRETS_MANAGER_ROLE   = "${var.secret_manager_role}"
     }
   }
-
 }
