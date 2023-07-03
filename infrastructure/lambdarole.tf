@@ -25,7 +25,7 @@ resource "aws_iam_role_policy" "lambda_iam_policy" {
   name = "${var.environment}-sdp-federated-id-key-gateway-policy"
   role = aws_iam_role.lambda_iam_role.id
 
- policy = <<-EOF
+  policy = <<-EOF
  {
 	"Version": "2012-10-17",
 	"Statement": [
