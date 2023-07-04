@@ -17,6 +17,13 @@ resource "aws_lambda_function" "lambda" {
   }
 }
 
+resource "aws_lambda_permission" "api_integration" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_stage.gateway_stage.execution_arn}/*/*"
+}
+
 resource "aws_cloudwatch_log_group" "log_group" {
   name              = "/aws/lambda/${aws_lambda_function.lambda.function_name}"
   retention_in_days = 30
