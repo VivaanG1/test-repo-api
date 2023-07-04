@@ -15,22 +15,13 @@ resource "aws_lambda_function" "lambda" {
       SECRETS_MANAGER_ROLE   = "${var.secret_manager_role}"
     }
   }
-
-  resource_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "apigateway.amazonaws.com"
-      },
-      "Action": "lambda:InvokeFunction",
-      "Resource": "${aws_apigatewayv2_stage.gateway_stage.execution_arn}/*"
-    },
-  ]
 }
-EOF
+
+resource "aws_lambda_permission" "api_integration" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_stage.gateway_stage.execution_arn}/*/*"
 }
 
 resource "aws_cloudwatch_log_group" "log_group" {
