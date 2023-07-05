@@ -28,8 +28,7 @@ resource "aws_apigatewayv2_deployment" "gateway_deploy" {
 }
 
 resource "aws_apigatewayv2_stage" "gateway_stage" {
-  api_id = aws_apigatewayv2_api.gateway.id
-  name   = var.environment
-  # deployment_id = aws_apigatewayv2_deployment.gateway_deploy.id
+  api_id      = aws_apigatewayv2_api.gateway.id
+  name        = var.environment
   auto_deploy = true
 }
