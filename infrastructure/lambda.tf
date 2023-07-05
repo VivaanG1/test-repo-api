@@ -2,8 +2,8 @@ resource "aws_lambda_function" "lambda" {
 
   function_name = "${var.environment}-sdp-federated-id-key-gateway-lambda"
   description   = "Lambda function for FedID"
-  filename      = "../build.zip"
-  handler       = "build/index.lambda_handler"
+  filename      = "../build1.zip"
+  handler       = "index.lambda_handler"
   role          = aws_iam_role.lambda_iam_role.arn
   runtime       = "nodejs18.x"
   memory_size   = "1024"
